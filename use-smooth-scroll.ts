@@ -1,25 +1,8 @@
 import { useEffect, useState } from 'react'
 
-function useQueryParams() {
-  const [searchParams, setSearchParams] = useState(new URLSearchParams(window.location.search))
-
-  useEffect(() => {
-    const handlePopState = () => {
-      setSearchParams(new URLSearchParams(window.location.search))
-    }
-
-    window.addEventListener('popstate', handlePopState)
-    return () => {
-      window.removeEventListener('popstate', handlePopState)
-    }
-  }, [])
-
-  return searchParams
-}
-
-export function useSmoothScroll(hashes: Array<string>) {
-  const searchParams = useQueryParams()
+export function useSmoothScroll(hashes: Array<string>, useSearchParams: any) {
   const [activeHash, setActiveHash] = useState<string | null>(null)
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +42,9 @@ export function useSmoothScroll(hashes: Array<string>) {
 
     if (currentHash === '') return
 
-    if (hashes.includes(currentHash)) {
+    const hashesSet = new Set(hashes)
+
+    if (hashesSet.has(currentHash)) {
       const id = currentHash.replace('#', '')
       document.getElementById(id)?.scrollIntoView({
         behavior: 'smooth',
