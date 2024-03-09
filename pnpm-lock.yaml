@@ -8,9 +8,6 @@ dependencies:
   next:
     specifier: ^14.1.3
     version: 14.1.3(react-dom@18.2.0)(react@18.2.0)
-  official-website-template:
-    specifier: link:/Users/liuli/side-projects/beautyplus-cam-website
-    version: link:../beautyplus-cam-website
   react:
     specifier: ^18.2.0
     version: 18.2.0
