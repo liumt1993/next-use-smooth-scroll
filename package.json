@@ -1,6 +1,6 @@
 {
   "name": "next-use-smooth-scroll",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple smooth scroll react hook for Next.js",
   "repository": {
     "type": "git",
