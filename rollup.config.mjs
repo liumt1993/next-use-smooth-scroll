@@ -4,9 +4,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import terser from '@rollup/plugin-terser'
 
 export default {
-  input: 'use-smooth-scroll.ts',
+  input: 'index.ts',
   output: {
-    file: 'use-smooth-scroll.js',
+    file: 'index.js',
     format: 'es',
   },
   external: ['react', 'next/navigation'],
